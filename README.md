@@ -2,4 +2,5 @@
 
 Docs(Week4): https://docs.google.com/document/d/1XrgPQuZADJmF_qR22DIrUTLwlYRaILghTNEv_-zIja8/edit?usp=sharing <br>
 Docs(Week5): https://docs.google.com/document/d/145-N75hizs62AKKdRKazF8eZ6lMqce-TYpFMDb8x5H8/edit?usp=sharing <br>
-Video(Week5): schita_proiect_w5.mp4
+Video(Week5): schita_proiect_w5.mp4  <br>
+Video(Week6): https://www.youtube.com/watch?v=ahp1lIaUERM
