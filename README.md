@@ -6,5 +6,5 @@ Video(Week5): schita_proiect_w5.mp4  <br>
 Video(Week6): https://www.youtube.com/watch?v=ahp1lIaUERM
 Video(Week10): https://www.youtube.com/watch?v=yAA7HkQhv38
 - Pentru saptamana 10 am lucrat mai mult mult pe partea de modelare 3D, am refacut toata camera, pana in saptamana a11a o sa fie gata <br>
-Video(Week11): https://we.tl/t-Y8Iyn8MDBg
+<br>Video(Week11): https://we.tl/t-Y8Iyn8MDBg
 
