@@ -4,17 +4,30 @@ using System.Collections;
 public class CombinationLock : MonoBehaviour
 {
     [Header("References")]
-    public Dial[] dials;     
-    public Transform lid;     
+    public Dial[] dials;
+    public Transform lid;
 
     [Header("Open Settings")]
-    public float openAngle = -90f;    
-    public float openDuration = 1f;  
+    public float openAngle = -90f;
+    public float openDuration = 1f;
 
     [Header("Correct Code")]
-    public int[] correctCode = { 3, 7, 1 };  
+    public int[] correctCode = { 3, 7, 1 };
+
+    [Header("Code source (optional)")]
+    public RandomizeDigits codeDisplay;  
 
     private bool unlocked = false;
+
+    void Start()
+    {
+        if (codeDisplay != null && codeDisplay.digits != null &&
+            codeDisplay.digits.Length == dials.Length)
+        {
+            correctCode = (int[])codeDisplay.digits.Clone();
+        }
+    }
+
     public void OnDialChanged()
     {
         if (unlocked) return;
