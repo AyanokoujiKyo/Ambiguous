@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Diagnostics;
 
 public class CombinationLock : MonoBehaviour
 {
@@ -11,21 +12,41 @@ public class CombinationLock : MonoBehaviour
     public float openAngle = -90f;
     public float openDuration = 1f;
 
-    [Header("Correct Code")]
+    [Header("Correct Code (fallback)")]
     public int[] correctCode = { 3, 7, 1 };
 
     [Header("Code source (optional)")]
-    public RandomizeDigits codeDisplay;  
+    public RandomizeDigits[] codeDisplays;  
+
+    [Header("DEBUG")]
+    [SerializeField] private string debugCode;   
 
     private bool unlocked = false;
 
     void Start()
     {
-        if (codeDisplay != null && codeDisplay.digits != null &&
-            codeDisplay.digits.Length == dials.Length)
+        if (codeDisplays != null &&
+            dials != null &&
+            codeDisplays.Length == dials.Length)
         {
-            correctCode = (int[])codeDisplay.digits.Clone();
+            int len = dials.Length;
+            correctCode = new int[len];
+
+            for (int i = 0; i < len; i++)
+            {
+                var src = codeDisplays[i];
+                if (src != null && src.digits != null && src.digits.Length > 0)
+                {
+                    correctCode[i] = src.digits[0];
+                }
+                else
+                {
+                    correctCode[i] = 0;
+                }
+            }
         }
+        debugCode = string.Join("-", correctCode);
+        UnityEngine.Debug.Log($"[CombinationLock] Cod corect: {debugCode}");
     }
 
     public void OnDialChanged()
@@ -64,5 +85,7 @@ public class CombinationLock : MonoBehaviour
             lid.localRotation = Quaternion.Slerp(startRot, endRot, t);
             yield return null;
         }
+
+        lid.localRotation = endRot;
     }
 }
