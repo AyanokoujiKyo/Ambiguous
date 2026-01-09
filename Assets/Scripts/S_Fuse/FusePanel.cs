@@ -17,10 +17,12 @@ public class FusePanel : MonoBehaviour
     public Light fuseLight1;
     public Light fuseLight2;
     public Light fuseLight3;
+    public Light fuseLight4; // <--- AM ADAUGAT ASTA
 
     public float light1Target = 3000f;
     public float light2Target = 3000f;
     public float light3Target = 3000f;
+    public float light4Target = 3000f; // <--- AM ADAUGAT ASTA (Poti schimba valoarea in Inspector)
 
     public float fadeTime = 1.2f;
 
@@ -34,6 +36,7 @@ public class FusePanel : MonoBehaviour
         InitLight(fuseLight1);
         InitLight(fuseLight2);
         InitLight(fuseLight3);
+        InitLight(fuseLight4); // <--- AM ADAUGAT ASTA
     }
 
     void InitLight(Light l)
@@ -89,6 +92,13 @@ public class FusePanel : MonoBehaviour
         {
             fuseLight3.enabled = true;
             StartCoroutine(Fade(fuseLight3, fuseLight3.intensity, light3Target, fadeTime));
+        }
+
+        // <--- AM ADAUGAT BLOCUL ASTA PENTRU LUMINA 4
+        if (fuseLight4)
+        {
+            fuseLight4.enabled = true;
+            StartCoroutine(Fade(fuseLight4, fuseLight4.intensity, light4Target, fadeTime));
         }
     }
 

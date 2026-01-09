@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.boxqkrtm.ide.cursor": "https://github.com/boxqkrtm/com.unity.ide.cursor.git",
     "com.unity.ai.navigation": "2.0.9",
     "com.unity.collab-proxy": "2.10.0",
     "com.unity.ide.rider": "3.0.38",
@@ -15,6 +16,8 @@
     "com.unity.xr.interaction.toolkit": "3.2.1",
     "com.unity.xr.management": "4.5.3",
     "com.unity.xr.mock-hmd": "1.4.0-preview.2",
+    "com.unity.xr.oculus": "4.5.2",
+    "com.unity.xr.openxr": "1.15.1",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
