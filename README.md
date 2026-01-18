@@ -10,5 +10,5 @@ Video(Week10): https://www.youtube.com/watch?v=yAA7HkQhv38
 Video(Week12): https://youtu.be/L6hSA_L6r-U
 
 - Pentru Saptamana 13 am aranjat ca jucatorul sa ia bine ciocanu, am modificat ca dupa primul task camera sa fie bine luminata(si inainte de acesta chiar sa fie camera intunecata), am muncit la partea cu iesirea din camera(partea de end game prin adaugare de flori etc), am rezolvat o problema existenta cu magnetul si am colorat camera <br>
-Video(Week13): https://youtu.be/0gxP2XyDPSI
+Video(Week13): https://youtu.be/0gxP2XyDPSI <br>
 Video(Week14): www.youtube.com/watch?v=daYBu93BwSE&feature=youtu.be
