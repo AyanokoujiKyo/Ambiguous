@@ -17,12 +17,17 @@ public class FusePanel : MonoBehaviour
     public Light fuseLight1;
     public Light fuseLight2;
     public Light fuseLight3;
-    public Light fuseLight4; // <--- AM ADAUGAT ASTA
+    public Light fuseLight4;
+
+    [Header("Puzzle Flow (Indicii & Taskuri)")]
+    public GameObject hiddenCluesParent; // Aici tragi obiectul parinte "Indicii_Seif"
+    public TaskManager taskManager;      // <--- AICI ESTE LEGATURA NOUA
+    // -------------------------------------
 
     public float light1Target = 3000f;
     public float light2Target = 3000f;
     public float light3Target = 3000f;
-    public float light4Target = 3000f; // <--- AM ADAUGAT ASTA (Poti schimba valoarea in Inspector)
+    public float light4Target = 3000f;
 
     public float fadeTime = 1.2f;
 
@@ -33,10 +38,17 @@ public class FusePanel : MonoBehaviour
         if (whenSolvedEnable)
             whenSolvedEnable.SetActive(false);
 
+        // --- COD NOU: Ascundem numerele cand incepe jocul ---
+        if (hiddenCluesParent != null)
+        {
+            hiddenCluesParent.SetActive(false);
+        }
+        // ----------------------------------------------------
+
         InitLight(fuseLight1);
         InitLight(fuseLight2);
         InitLight(fuseLight3);
-        InitLight(fuseLight4); // <--- AM ADAUGAT ASTA
+        InitLight(fuseLight4);
     }
 
     void InitLight(Light l)
@@ -72,6 +84,20 @@ public class FusePanel : MonoBehaviour
         if (whenSolvedEnable)
             whenSolvedEnable.SetActive(true);
 
+        // --- COD NOU: Aratam numerele cand ai rezolvat puzzle-ul ---
+        if (hiddenCluesParent != null)
+        {
+            hiddenCluesParent.SetActive(true);
+        }
+        // -----------------------------------------------------------
+
+        // --- COD NOU: Anuntam TaskManager ca am terminat ---
+        if (taskManager != null)
+        {
+            taskManager.FinalizeazaTask1(); // Oprim cronometrul si schimbam textul
+        }
+        // ---------------------------------------------------
+
         if (solvedSfx)
             solvedSfx.Play();
 
@@ -94,7 +120,6 @@ public class FusePanel : MonoBehaviour
             StartCoroutine(Fade(fuseLight3, fuseLight3.intensity, light3Target, fadeTime));
         }
 
-        // <--- AM ADAUGAT BLOCUL ASTA PENTRU LUMINA 4
         if (fuseLight4)
         {
             fuseLight4.enabled = true;

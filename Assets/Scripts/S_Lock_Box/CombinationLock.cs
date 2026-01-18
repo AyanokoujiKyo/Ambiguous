@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Collections;
-using System.Diagnostics;
 
 public class CombinationLock : MonoBehaviour
 {
     [Header("References")]
     public Dial[] dials;
     public Transform lid;
+
+    [Header("Game Flow")]
+    public TaskManager taskManager; // <--- LEGATURA NOUA CU TASK MANAGER
 
     [Header("Open Settings")]
     public float openAngle = -90f;
@@ -56,6 +58,14 @@ public class CombinationLock : MonoBehaviour
         if (IsCodeCorrect())
         {
             unlocked = true;
+
+            // --- AICI ANUNTAM CA S-A DESCHIS SEIFUL ---
+            if (taskManager != null)
+            {
+                taskManager.FinalizeazaTask2(); // Trecem la Task 3 (Cheia)
+            }
+            // ------------------------------------------
+
             StartCoroutine(OpenLid());
         }
     }
